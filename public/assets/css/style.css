@@ -1,0 +1,201 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Màu chủ đạo */
+:root {
+    --primary-color: #ff6600;
+    --secondary-color: #ffcc99;
+    --text-color: #333;
+    --white: #fff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Header */
+header {
+    background-color: #ff6600;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Banner */
+.banner {
+    text-align: center;
+    padding: 50px;
+    background-color: #ffcc80;
+}
+
+.banner h2 {
+    color: #ff6600;
+}
+
+/* Book List */
+.book-list {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+}
+
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.book-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    background-color: white;
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.book-card h3 {
+    font-size: 18px;
+    color: #ff6600;
+}
+
+.book-card p {
+    font-size: 14px;
+    color: #333;
+}
+
+.book-card .price {
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+.book-card .btn {
+    display: block;
+    background-color: #ff6600;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.book-card .btn:hover {
+    background-color: #e65100;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #ff6600;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Màu sắc */
+:root {
+    --primary-color: #ff6600;
+    --secondary-color: #ffcc99;
+    --text-color: #333;
+    --white: #fff;
+}
+
+/* Trang Đăng Nhập & Đăng Ký */
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-container h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.auth-container label {
+    display: block;
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.auth-container button:hover {
+    background: #cc5200;
+}
+
+.auth-container p {
+    margin-top: 10px;
+}
+
+.auth-container a {
+    color: var(--primary-color);
+    text-decoration: none;
+}

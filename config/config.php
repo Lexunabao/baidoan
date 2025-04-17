@@ -1,5 +1,5 @@
 <?php
-// **Cấu hình kết nối Database**
+
 define('DB_HOST', 'localhost');      // Địa chỉ host của MySQL
 define('DB_NAME', 'bookstore');      // Tên cơ sở dữ liệu
 define('DB_USER', 'root');           // Tên đăng nhập MySQL

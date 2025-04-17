@@ -4,20 +4,26 @@ require_once __DIR__ . '/../models/Book.php';
 class BookController {
     public function index() {
         $bookModel = new Book();
-        $books = $bookModel->getAllBooks();
-    
-       
-        if (!$books) {
-            echo "<pre>";
-            print_r($books);
-            echo "</pre>";
-            die("❌ Không có sách nào hoặc lỗi trong truy vấn database!");
+
+        
+        $limit = 10;
+
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+        $offset = ($currentPage - 1) * $limit;
+        $books = $bookModel->getBooksWithPagination($offset, $limit);
+        
+        
+        $totalBooks = $bookModel->getTotalBooks();
+        $totalPages = ceil($totalBooks / $limit); 
+
+        if (empty($books)) {
+            echo "<h2>❌ Không có sách nào trong hệ thống!</h2>";
+            exit(); 
         }
-    
         include __DIR__ . '/../views/admin/books/index.php';
         exit();
     }
-    
     
 
     public function getLastBooks() {
@@ -63,7 +69,23 @@ class BookController {
             }
             include __DIR__ . '/../views/admin/books/add.php';
         }     
-    
+        public function getBooksWithPagination($page = 1, $limit = 10) {
+            $bookModel = new Book();
+            $offset = ($page - 1) * $limit;
+            
+            // Lấy tổng số sách
+            $totalBooks = $bookModel->getTotalBooks();
+            
+            // Lấy sách với phân trang
+            $books = $bookModel->getBooksWithLimit($offset, $limit);
+            
+            return [
+                'books' => $books,
+                'totalBooks' => $totalBooks,
+                'totalPages' => ceil($totalBooks / $limit),
+            ];
+        }
+        
     public function edit($id) {
         $bookModel = new Book();
         $book = $bookModel->getBookById($id);

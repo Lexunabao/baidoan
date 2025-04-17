@@ -40,8 +40,10 @@
                 ?>
             </div>
         <?php endif; ?>
-<!-- Nút Quay Lại -->
-<a href="index.php?action=admin_home" class="btn-back">⬅ Quay lại Trang Admin</a>
+        
+        <!-- Nút Quay Lại -->
+        <a href="index.php?action=admin_home" class="btn-back">⬅ Quay lại Trang Admin</a>
+        
         <!-- Bảng danh sách sách -->
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
@@ -66,15 +68,12 @@
                             <td><?= number_format($book['price'], 0, ',', '.'); ?> VNĐ</td>
                             <td><?= htmlspecialchars($book['category_name']) ?></td>
                             <td>
-    <?php 
-                        $imagePath = !empty($book['image']) ? "/PHP/baidoan/" . htmlspecialchars($book['image']) : "/PHP/baidoan/public/assets/images/no-image.png";
-                        ?>
-                        <img src="<?= $imagePath ?>" width="80" height="100"
-                            onerror="this.onerror=null;this.src='/PHP/baidoan/public/assets/images/no-image.png';">
-</td>
-
-
-
+                                <?php 
+                                    $imagePath = !empty($book['image']) ? "/PHP/baidoan/" . htmlspecialchars($book['image']) : "/PHP/baidoan/public/assets/images/no-image.png";
+                                ?>
+                                <img src="<?= $imagePath ?>" width="80" height="100"
+                                     onerror="this.onerror=null;this.src='/PHP/baidoan/public/assets/images/no-image.png';">
+                            </td>
                             <td>
                                 <a href="index.php?action=edit_book&id=<?= $book['id'] ?>" class="btn btn-warning btn-sm">
                                     ✏️ Sửa
@@ -83,11 +82,8 @@
                                    onclick="return confirm('Bạn có chắc chắn muốn xóa sách này?')">
                                     🗑 Xóa
                                 </a>
-                                
                             </td>
                         </tr>
-                        
-
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
@@ -96,6 +92,15 @@
                     <?php endif; ?>
                 </tbody>
             </table>
+        </div>
+
+        <!-- Phân trang -->
+        <div class="pagination">
+            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                <a href="index.php?action=manage_books&page=<?= $i ?>" class="btn btn-light btn-sm <?= ($i == $currentPage) ? 'active' : '' ?>">
+                    <?= $i ?>
+                </a>
+            <?php endfor; ?>
         </div>
     </div>
 

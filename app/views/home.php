@@ -116,57 +116,65 @@ $books = $bookController->getLastBooks();
     }
 
     .book-card {
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px; /* Tăng padding để thẻ sách rộng hơn */
-        text-align: center;
-        width: 100%;
-        max-width: 280px; /* Tăng kích thước tối đa thẻ sách */
-        transition: transform 0.3s ease;
-    }
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Đảm bảo các phần tử được chia đều */
+    height: auto; /* Đặt chiều cao tự động để thẻ có thể mở rộng */
+    min-height: 380px; /* Đặt chiều cao tối thiểu để nút không bị quá sát dưới */
+    transition: transform 0.3s ease;
+}
 
-    .book-card:hover {
-        transform: translateY(-10px);
-    }
+.book-card:hover {
+    transform: translateY(-10px);
+}
 
-    .book-card img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 5px;
-        margin-bottom: 15px;
-    }
+.book-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
 
-    .book-card h3 {
-        font-size: 1.8rem; /* Tăng kích thước tiêu đề sách */
-        color: #333;
-        margin-bottom: 10px;
-    }
+.book-card h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Đảm bảo tiêu đề không bị cắt khi quá dài */
+}
 
-    .book-card p {
-        font-size: 1.1rem;
-        color: #777;
-        margin-bottom: 10px;
-    }
+.book-card p {
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 10px;
+}
 
-    .book-card .price {
-        font-size: 1.3rem; /* Tăng kích thước giá */
-        color: #f5a623;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
+.book-card .price {
+    font-size: 1.3rem;
+    color: #f5a623;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
 
-    .book-card .btn {
-        background-color: #28a745;
-        padding: 10px 20px;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-    }
+.book-card .btn {
+    background-color: #28a745;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: auto; /* Đảm bảo nút luôn ở dưới cùng */
+}
 
-    .book-card .btn:hover {
-        background-color: #218838;
-    }
+.book-card .btn:hover {
+    background-color: #218838;
+}
+
 
     /* Section not found books */
     .book-list p {

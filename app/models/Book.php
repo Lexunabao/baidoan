@@ -43,6 +43,33 @@ class Book {
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function getTotalBooks() {
+        $sql = "SELECT COUNT(*) AS total FROM books";
+        $result = $this->conn->query($sql);  
+        $row = $result->fetch(PDO::FETCH_ASSOC);  
+        return $row['total'];
+    }
+    
+
+    public function getBooksWithLimit($offset, $limit) {
+        $sql = "SELECT * FROM books LIMIT $offset, $limit";
+        $result = $this->conn->query($sql);  
+        $books = [];
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) { 
+            $books[] = $row;
+        }
+        return $books;
+    }
+    public function getBooksWithPagination($offset, $limit) {
+        $query = "SELECT books.*, categories.name AS category_name FROM books 
+                  LEFT JOIN categories ON books.category_id = categories.id 
+                  LIMIT :offset, :limit";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 
     public function addBook($title, $author, $price, $description, $imagePath, $category_id) {

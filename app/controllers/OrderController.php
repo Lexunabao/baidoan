@@ -28,7 +28,7 @@ class OrderController {
         $orderModel = new Order();
         $orderDetailModel = new OrderDetail();
 
-        $order_id = $_GET['order_id'];
+        $order_id = $_GET['order_id'];  
         $order = $orderModel->getOrderById($order_id);
         $orderDetails = $orderDetailModel->getOrderDetailsByOrderId($order_id);
 

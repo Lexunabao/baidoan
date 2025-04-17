@@ -130,6 +130,11 @@ if (!isset($books)) {
             text-align: center;
             width: 100%;
             max-width: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Đảm bảo các phần tử được chia đều */
+            height: auto; /* Đặt chiều cao tự động để thẻ có thể mở rộng */
+            min-height: 380px; /* Đặt chiều cao tối thiểu để nút không bị quá sát dưới */
             transition: transform 0.3s ease;
         }
 
@@ -148,6 +153,7 @@ if (!isset($books)) {
             font-size: 1.8rem;
             color: #333;
             margin-bottom: 10px;
+            word-wrap: break-word; /* Đảm bảo tiêu đề không bị cắt khi quá dài */
         }
 
         .book-card p {
@@ -169,6 +175,7 @@ if (!isset($books)) {
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            margin-top: auto; /* Đảm bảo nút luôn ở dưới cùng */
         }
 
         .book-card .btn:hover {

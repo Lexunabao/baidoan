@@ -475,3 +475,124 @@ h2 {
 }
 
 
+/* Đảm bảo rằng phần tử chứa bảng có đủ không gian */
+.container {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Căn chỉnh phần tử con bắt đầu từ bên trái */
+}
+
+/* Tiêu đề */
+h2.text-center {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 30px;
+}
+
+/* Nút thêm sách mới */
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Bảng sách */
+.table-responsive {
+    margin-bottom: 20px;
+    width: 100%; /* Đảm bảo bảng chiếm hết chiều rộng */
+    overflow-x: auto; /* Thêm khả năng cuộn ngang khi màn hình nhỏ */
+}
+
+/* Điều chỉnh phân trang */
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 40px;  /* Đảm bảo phân trang có đủ không gian */
+}
+
+.pagination a {
+    padding: 8px 20px;
+}
+
+/* Cải thiện bảng */
+.table {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table td img {
+    max-width: 100px;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+/* Các thông báo thành công và lỗi */
+.alert {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Media Queries cho màn hình nhỏ hơn */
+@media screen and (max-width: 768px) {
+    /* Cải thiện việc hiển thị nút "Thêm sách mới" trên màn hình nhỏ */
+    .btn-success {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Giảm kích thước bảng và nút phân trang */
+    .table th, .table td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    /* Cải thiện phân trang */
+    .pagination {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .pagination a {
+        padding: 5px 10px;
+    }
+}
